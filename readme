@@ -1,0 +1,4 @@
+说明：
+    1.首先初始化一个react-native的demo.
+    2.App.js为程序入口文件：是android和ios共享的文件。
+    3.
