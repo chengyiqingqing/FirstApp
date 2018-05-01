@@ -26,7 +26,7 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
        {/*welcome为Text文本样式的引用：style_id*/}
         <Text style={styles.welcome}>
-          Welcome to React Native!邵文文
+          Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit App.js

@@ -1,4 +1,47 @@
 说明：
+1.react native的基本组件及创建组件；
     1.首先初始化一个react-native的demo.
-    2.App.js为程序入口文件：是android和ios共享的文件。
-    3.
+    2.index.js为入口文件：调用App.js为程序入口，是android和ios共享的文件。
+    3.创建一个setup.js文件，修改为程序入口；
+        三种方式创建Component
+        ES6的创建方式:
+        ES5的创建方式:
+
+        无需再次运行只需要reload一下就可以了。
+2.react native组件的生命周期;
+    1.什么是组件的生命周期？
+    2.组件的生命周期中都包含哪些方法，各有什么作用？
+    3.生命周期的方法都在什么时候调用？
+
+    查看log的方式：
+        1.给chrome浏览器安装react native tool插件。
+        2.USB链接手机后，打开chrome 浏览器查看链接设备，地址栏直接输入：chrome://inspect/#devices
+        3.chrom打开新的标签页，并在状态栏中输入：http://localhost:8081/debugger-ui,并打开开发者模式（F12）
+
+3.两个问题没有解决：
+    1.导入facebook的reactnative_example;
+        git clone https:github.com/facebook/react-native.git
+        接着进入react-native目录下的react-native-cli目录，输入命令。(这样npm install -g) 就成功了
+            npm install -g
+            （明天再看看）
+    2.就是reactnative_log不能在chrome浏览器中调出来。
+        You may also install the standalone version of React Developer Tools to inspect the React component hierarchy, their props, and state.
+        使用shadesocks没有应用；依旧是下载不下来。但是配了这两行之后，速度快的很。
+            npm config set registry https://registry.npm.taobao.org --global
+            npm config set disturl https://npm.taobao.org/dist --global
+            npm install -g react-devtools
+        （已经解决了）
+
+    3.点的发现：
+        1.development server returned response error code : 500;
+            就是说你代码有问题。仔细检查检查。(再次说明是自己的饿代码有问题。如标点符号之类的，看有没有报错等)
+        2.修改完代码之后，不用重新运行。直接reload就行了.
+        3.生命周期的地方主要是三个状态。装载，更新，移除。
+
+        Component<Props> 是对的。写成Component();就dying
+
+        4.undefined  is not an object (evaluating '_react2.PropTypes.string')
+            错误引入方式：import React, { PropTypes } from 'react';
+            正确引入方式：import PropTypes from 'prop-types';
+
+        5.综合好几种就是这个样子了。
