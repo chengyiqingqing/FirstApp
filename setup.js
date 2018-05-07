@@ -16,6 +16,11 @@ import {
 import Sww02_InputAndOutputComponent,{name,age,sum} from "./Sww02_InputAndOutputComponent";
 import Sww03_PropsTest from "./Sww03_PropsTest";
 import Sww04_StateTest from "./Sww04_StateTest";
+import Sww05_RefTest from "./Sww05_RefTest";
+import Sww06_Student from "./Sww06_Student";
+import Sww06_XiaoMingStudent from "./Sww06_XiaoMingStudent";
+import Sww07_Layout from "./Sww07_Layout";
+import Sww08_Button from "./Sww08_Button";
 
 /*const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
@@ -33,14 +38,61 @@ export default class setup extends Component<Props> {
         this.state = ({
             // 这里直接进行了变量声明和初始化
             remove:false,
-            result:''
+            result:'',
+            size:0
         })
+        //初始化这个类的对象。
+        // this.stu=new Sww06_Student('学生','性别男',23);
+        this.stu=new Sww06_XiaoMingStudent();
     }
 
     render(){
         // return this.renderSww02()
         // return this.renderSww03()
-        return this.renderSww04()
+        // return this.renderSww04()
+        // return this.renderSww05()
+        // return this.renderSww07()
+        return this.renderSww08()
+    }
+
+    renderSww08(){
+        return (
+            <View>
+                <Sww08_Button></Sww08_Button>
+            </View>
+        )
+    }
+
+    renderSww07(){
+        return (
+            <View >
+                <Sww07_Layout/>
+            </View>
+        )
+    }
+
+    renderSww05(){
+        return (
+            <View style={styles.container}>
+                <Text
+                    style={{fontSize:20}}
+                    onPress={()=>{
+                        // var size=this.refs.reftest.getSize();
+                        var size=this.refs['reftest'].getSizeFromSww();
+                        console.log('打印size的大小：'+size);
+                        this.setState({
+                            size:size,
+                        })
+                    }}
+                >
+                获取气球的大小：{this.state.size}  --
+                    {this.stu.getDescription()}
+                </Text>
+                <Sww05_RefTest
+                    ref='reftest'
+                />
+            </View>
+        )
     }
 
     renderSww04(){
